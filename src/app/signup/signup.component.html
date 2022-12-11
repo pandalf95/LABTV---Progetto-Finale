@@ -1,0 +1,44 @@
+<img class="mt-5" src="../../assets/immagini/logo-tipo.png">
+
+<form class="mt-5 d-flex flex-column" (ngSubmit) = "inviaDati(f)" #f = "ngForm" autocomplete="off">
+
+    <div class="form-group mb-3">
+        <label class="form-label" for="nome">Il tuo nome:</label>
+        <input class="form-control" type="text" (focus)="nFocused=true" (blur) = "nFocused=false" placeholder="Inserisci il tuo nome" name="nome" id="nome" pattern="[a-zA-Z ']{3,}" ngModel required >
+        <small class="text-danger" *ngIf = "f.controls['nome']?.invalid && f.submitted && !nFocused">Inserisci un nome valido</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label" for="email">La tua email:</label>
+        <input class="form-control" type="email" (focus)="eFocused=true" (blur) = "eFocused=false" placeholder="Inserisci la tua email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" ngModel required >
+        <small class="text-danger" *ngIf = "f.controls['email']?.invalid && f.submitted && !eFocused">Inserisci una mail valida</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label" for="password">Scegli una password:</label>
+        
+        <input class="form-control" [type] = "hide ? 'password' : 'text'" (focus)="pFocused=true" (blur) = "pFocused=false" name="password" id="password" placeholder="Inserisci la tua password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" ngModel required>
+        <label for="eye">
+                <i [ngClass]="{'fa-solid fa-eye' : !hide, 'fa fa-eye-slash' : hide}"></i>
+        </label>
+        <input type="checkbox" (click) = "switchVisibilityPassword()" id="eye" hidden>
+        <small class="text-sm">La password deve contenere almeno 8 caratteri di cui uno maiuscolo, uno minuscolo, un numero e uno speciale</small><br>
+        <small class="text-danger" *ngIf = "f.controls['password']?.invalid && f.submitted  && !pFocused">La password non rispetta i criteri</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label" for="password">Scegli una password:</label>
+        
+        <input class="form-control" [type] = "hide ? 'password' : 'text'" (focus)="p2Focused=true" (blur) = "p2Focused=false" name="password2" id="password2" placeholder="Reinserisci la password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" ngModel required>
+        <label for="eye2">
+                <i [ngClass]="{'fa-solid fa-eye' : !hide2, 'fa fa-eye-slash' : hide2}"></i>
+        </label>
+        <input type="checkbox" (click) = "switchVisibilityPassword2()" id="eye2" hidden>
+        <small class="text-danger" *ngIf = "!matchPassword && f.submitted">La password non corrisponde</small>
+    </div>
+
+    <button class="mt-3" type="submit">Registrati</button>
+    
+    <span class="text-center mt-3">Hai già un account? <a [routerLink]="['../login']">Accedi</a></span>
+
+</form>

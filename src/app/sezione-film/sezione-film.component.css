@@ -1,0 +1,23 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    transition: .5s;
+    border: 2px solid transparent;
+}
+
+.card img, .card h2 {
+    cursor: pointer;
+    
+}
+
+.card:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #fff;
+    cursor: pointer;
+}

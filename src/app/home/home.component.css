@@ -1,0 +1,51 @@
+/*#region MENU*/
+
+.flex-container {
+    display: flex;
+}
+
+nav .flex-container {
+    justify-content: space-between;
+}
+
+nav .flex-item {
+    align-self: center;
+    padding: 0 2vw;
+}
+
+nav .flex-container img {
+    width: 80px;
+    margin-top: 10px;
+}
+
+/*#endregion MENU*/
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.wrapper .card {
+    margin-left: 15px;
+}
+
+.wrapper img {
+    cursor: pointer;
+}
+
+.wrapper .card h4 {
+    text-shadow: 2px 2px #000;
+    font-weight: bolder;
+    color: #cdcdcd;
+}
+
+.wrapper .card .btn {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    transition: .5s;
+}
+
+.wrapper .card .btn:hover {
+    border: 1px solid #fff;
+}
+

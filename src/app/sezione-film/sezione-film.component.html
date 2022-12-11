@@ -1,0 +1,24 @@
+<h1 *ngIf="categoria == 'popular'" class="text-center display-2 mt-3 mb-5">Film Popolari</h1>
+<h1 *ngIf="categoria == 'top_rated'" class="text-center display-2 mt-3 mb-5">Film Più Votati</h1>
+<h1 *ngIf="categoria == 'upcoming'" class="text-center display-2 mt-3 mb-5">Film In Arrivo</h1>
+
+<a [routerLink]="['/home']" class="ms-3 h5">Torna alla home</a>
+
+<div class="wrapper">
+
+    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let film of movies" (click) = "clickCopertina(film.id)">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img [src]="'https://www.themoviedb.org/t/p/original/' + film.poster_path" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title mb-5 ms-3">{{film.title}}</h3>
+                <p *ngIf = "film.vote_average != 0" class="ms-3">Voto: {{film.vote_average}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "email": "prova@prova.it",
+      "password": "$2a$10$atGG0PJ79QiY6s.QtF5B/ueWy7trlKJbe6n.hS9SGfA9zxJjtlleG",
+      "id": 1
+    },
+    {
+      "email": "fabrizio@mail.it",
+      "password": "$2a$10$ACxSoJ4P90RoKyHXWpDNJejYCbDP26z1powH.T6Alk/iDDEMBn8rS",
+      "nome": "Fabrizio",
+      "password2": "Fabrizio2!",
+      "id": 2
+    },
+    {
+      "email": "falciona94@hotmail.it",
+      "password": "$2a$10$wZ98l7XfAuWzToFDQLFNB.ESYcsf9E5tIRNqSjett/VauVDD7rPdG",
+      "nome": "Cammellone costola",
+      "password2": "was-validated",
+      "id": 3
+    }
+  ],
+  "movies": [
+    
+  ]
+}

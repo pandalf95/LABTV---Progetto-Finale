@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+    transition: .3s;
+    text-shadow: 1px 1px #000;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #7f77da;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

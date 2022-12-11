@@ -1,1 +1,67 @@
-<p>dettaglio-tv works!</p>
+<!--<div id="body" [ngStyle] = "{'background-image': 'url(https://www.themoviedb.org/t/p/original/' + dettagli?.backdrop_path + ')'}">-->
+
+    <div id="menu">
+
+        <div><i class="fa fa-arrow-left" (click)="goBack()"></i></div>
+
+        <h1 class="text-center display-4 mt-4">{{dettagli?.name}}</h1>
+
+        <img src="../../assets/immagini/logo.png" alt="" title="Vai alla home" [routerLink]="['/home']">   
+
+    </div>
+
+
+    <img id="sfondo" *ngIf="dettagli?.backdrop_path" [src] = "'https://www.themoviedb.org/t/p/original/' + dettagli.backdrop_path">
+
+    <article>
+
+        <section>
+            <div *ngIf="dettagli?.overview != '' " id="sinossi">
+                <h3>Trama</h3>
+                <p>{{dettagli?.overview}}</p>
+            </div>
+
+            <div id="play">
+                <i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci dall'inizio</span></i>
+            </div>
+
+            <div id="data">
+                <h5 class="data">Data: <small>{{dettagli?.first_air_date | date : 'dd/MM/YYYY'}}</small></h5>
+            </div>
+                
+            <div id="generi">
+                <h4>Genere: </h4>
+                <span *ngFor = "let genere of dettagli?.genres">{{genere.name}}&nbsp;&nbsp;</span>
+            </div>
+
+        </section>
+
+        <aside>
+            <div *ngFor="let stagione of dettagli?.seasons">
+                <h3>{{stagione.name}} ({{stagione.episode_count}})</h3>
+            </div>
+        </aside>
+
+    </article>
+
+    <div id="simili" (click)="mostraSimili()">
+        <h2>Titoli simili <i [class]="!simili ? 'fa-solid fa-arrow-down' : 'fa-solid fa-arrow-up'"></i></h2>
+    </div>
+
+    <div *ngIf="simili" class="wrapper" id="boxSimili">
+
+        <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let simile of similarShows" (click) = "clickCopertina(simile.id)">
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img [src] = "'https://www.themoviedb.org/t/p/original/' + simile.poster_path" class="img-fluid rounded">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title mb-5 ms-3">{{simile.name}}</h3>
+                    <p *ngIf = "simile.vote_average != 0" class="ms-3">Voto: {{simile.vote_average}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>

@@ -46,4 +46,6 @@ export class SezioneFilmComponent implements OnInit {
     this.router.navigate(['dettaglio-film', id])
   }
 
+ 
+
 }

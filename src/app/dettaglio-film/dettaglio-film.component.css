@@ -1,41 +1,61 @@
-img {
+#sfondo {
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
+    bottom: 0;
+    width: 100%;
     z-index: -100;
     opacity: 0.3;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 98%;
+}
+
+#menu img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
 }
 
 h1 {
     text-shadow: 2px 2px #000;
 }
 
-.sinossi {
-    max-width: 50ch;
-    margin-left: 20px;
+#sinossi {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border-radius: 5px;
     font-size: 1.1em;
+    width: 100%;
+    grid-area: sinossi;
 }
 
 i.fa-arrow-left {
     cursor: pointer;
     transform: scale(2);
-    position: absolute;
-    top: 2.5em;
-    left: 2.5em;
     transition: .5s;
+    margin-left: 20px;
 }
 
 i.fa-play {
-    padding: .8em;
-    background-color: rgba(0, 0, 0, .8);
+    padding: .7em;
+    background-color: rgba(0, 0, 0, 0.8);
     font-size: 1.8em;
     cursor: pointer;
     border-radius: 10px;
     transition: .3s;
+    border: 1px solid #000;
+    width: 100%;
+}
+
+#play {
+    grid-area: play;
 }
 
 i.fa-arrow-left:hover {
@@ -48,15 +68,76 @@ i span {
 }
 
 .fa-play:hover {
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: rgba(48, 43, 99, 0.9);
+    border-color: #fff;
+}
+
+.trailer {
+    font-size: 1.2em;
+    font-weight: bolder;
+    background-color: rgba(151, 151, 151, 0.5);
+    transition: .3s;
+    width: 100%;
+    height: 100%;
     color: #000;
 }
 
+.trailer:hover {
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.9)
+}
+
+#tastoTrailer {
+    grid-area: trailer;
+}
+
 .iframeContainer {
-    margin-left: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 iframe {
     border-radius: 8px;
     border: 1px solid #ccc;
+}
+
+#generi {
+    grid-area: generi;
+    text-shadow: 2px 2px #000;
+}
+
+#data {
+    text-shadow: 2px 2px #000;
+    grid-area: data;
+    text-align: right;
+
+}
+
+section {
+    margin-left: 20px;
+    margin-top: 50px;
+    width: 33%;
+    display: grid;
+    grid-template-areas: "sinossi sinossi sinossi" "play play trailer" "generi data .";
+    row-gap: 1em;
+    column-gap: 10px;
+}
+
+#simili {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    right: 0;
+    width: 100%;
+    cursor: pointer;
+    padding: 1em;
+    text-align: center;
+}
+
+#boxSimili {
+    position: absolute;
+    top: 100%;
 }

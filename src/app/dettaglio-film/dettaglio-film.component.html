@@ -1,33 +1,69 @@
-<h1 class="text-center display-3 mt-4">{{dettagli?.title}}</h1>
+<div id="menu">
 
+    <div><i class="fa fa-arrow-left" (click)="goBack()"></i></div>
 
-<img *ngIf="dettagli?.poster_path" [src] = "'https://www.themoviedb.org/t/p/original/' + dettagli.backdrop_path">
+    <h1 class="text-center display-4 mt-4">{{dettagli?.title}}</h1>
 
+    <img src="../../assets/immagini/logo.png" alt="" title="Vai alla home" [routerLink]="['/home']">   
 
-<i class="fa fa-arrow-left" aria-hidden="true" (click)="goBack()"></i>
-
-<div *ngIf="dettagli?.overview != '' " class="sinossi">
-    <h3>Trama</h3>
-    <p>{{dettagli?.overview}}</p>
 </div>
 
-<!--<div class="mt-5 iframeContainer">
-    <h2 class="ms-2 mb-3">Guarda il trailer:</h2>
+
+<img id="sfondo" *ngIf="dettagli?.backdrop_path" [src] = "'https://www.themoviedb.org/t/p/original/' + dettagli.backdrop_path">
+
+
+
+
+
+<div *ngIf = "mostraTrailer" class="mt-5 iframeContainer">
     <iframe [src]="'https://www.themoviedb.org/video/play?key=' + video?.key | safe" allowfullscreen allow="autoplay"></iframe>
-</div>-->
-
-
-<i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci</span></i>
-    
-
-
-<div class="generi">
-    <h4>Genere: </h4>
-    <span *ngFor = "let genere of dettagli?.genres">{{genere.name}}&nbsp;&nbsp;</span>
 </div>
 
-<h4>Data: <small>{{dettagli?.release_date | date}}</small></h4>
 
-<div class="d-flex">
-    <div *ngFor = "let simile of similarMovies"></div>
+
+<section>
+    <div *ngIf="dettagli?.overview != '' " id="sinossi">
+        <h3>Trama</h3>
+        <p>{{dettagli?.overview}}</p>
+    </div>
+
+    <div id="play">
+        <i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci</span></i>
+    </div>
+
+    <div id="tastoTrailer">
+        <button class="btn trailer" (click)="mostraTrailer = !mostraTrailer">{{mostraTrailer == false ? "Guarda trailer" : "Nascondi Trailer"}}</button>
+    </div>
+
+    <div id="data">
+        <h5 class="data">Data: <small>{{dettagli?.release_date | date : 'dd/MM/YYYY'}}</small></h5>
+    </div>
+        
+    <div id="generi">
+        <h4>Genere: </h4>
+        <span *ngFor = "let genere of dettagli?.genres">{{genere.name}}&nbsp;&nbsp;</span>
+    </div>
+
+</section>
+
+<div id="simili" (click)="mostraSimili()">
+    <h2>Titoli simili <i [class]="!simili ? 'fa-solid fa-arrow-down' : 'fa-solid fa-arrow-up'"></i></h2>
+</div>
+
+<div *ngIf="simili" class="wrapper" id="boxSimili">
+
+    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let simile of similarMovies" (click) = "clickCopertina(simile.id)">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img [src] = "'https://www.themoviedb.org/t/p/original/' + simile.poster_path" class="img-fluid rounded">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title mb-5 ms-3">{{simile.title}}</h3>
+                <p *ngIf = "simile.vote_average != 0" class="ms-3">Voto: {{simile.vote_average}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
 </div>

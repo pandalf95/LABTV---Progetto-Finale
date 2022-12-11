@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsToDbService } from '../services/requests-to-db.service';
 
@@ -9,20 +9,33 @@ import { RequestsToDbService } from '../services/requests-to-db.service';
 })
 export class SezioneTvComponent implements OnInit {
 
-  constructor(private request:RequestsToDbService, private route:ActivatedRoute, private router:Router) {}
+  constructor(private request:RequestsToDbService, private route:ActivatedRoute, private router:Router ) {}
+  
 
-  copertine:any
-
+  copertine:Array<any> = []
   categoria:string = this.route.snapshot.params['categ']
+  posizioneScroll:number = window.scrollY
+  page:number = 1
 
   ngOnInit(): void {
-   this.aggiungiCopertine()
+   this.aggiungiCopertine("1")
   }
 
-  aggiungiCopertine() {
-    this.request.getRequest("tv", this.categoria).subscribe(
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.posizioneScroll + 600 <= window.scrollY ) {
+      this.posizioneScroll += 650
+      this.page++
+      this.aggiungiCopertine(this.page.toString())
+    }
+  }
+
+  aggiungiCopertine(page:string) {
+    this.request.getRequest("tv", this.categoria, page).subscribe(
       data => {
-        this.copertine = data.results
+        for (let serie of data.results) {
+          this.copertine.push(serie)
+        }
       },
       err => {
         console.log(err)

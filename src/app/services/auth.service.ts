@@ -11,7 +11,7 @@ export class AuthService {
   private signedUp:boolean;
 
   constructor(private http:HttpClient) {
-    this.loggedIn = false;
+    localStorage.getItem("token") ? this.loggedIn = true : this.loggedIn = false;
     this.signedUp = false;
    }
 
@@ -34,14 +34,18 @@ export class AuthService {
     this.signedUp = bool;
   }
 
-  
-
   login(user:any):Observable<any> {
     return this.http.post(this.wsLogin, user)
   }
 
   register(user:any):Observable<any> {
     return this.http.post(this.wsRegister, user)
+  }
+
+  logout() {
+    localStorage.removeItem("token")
+    localStorage.removeItem("user_id")
+    this.setLoggedIn(false);
   }
 
 }

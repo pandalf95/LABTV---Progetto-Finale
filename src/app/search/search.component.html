@@ -1,0 +1,8 @@
+<div>
+    <input type="text" placeholder="Cerca..." (keyup)="cerca()" [(ngModel)]="term" appAutoFocus>
+    <h4 *ngFor = "let found of risultati">
+        <span *ngIf="found.media_type != 'person'">
+            <a (click)="vaiADettaglio(found.id, found.media_type)">{{found.name || found.title}}</a>
+        </span>
+    </h4>
+</div>

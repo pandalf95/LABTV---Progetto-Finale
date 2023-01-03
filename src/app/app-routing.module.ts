@@ -8,11 +8,13 @@ import { SezioneFilmComponent } from './sezione-film/sezione-film.component';
 import { SezioneTvComponent } from './sezione-tv/sezione-tv.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { AuthGuardService } from './services/auth-guard.service';
+
 const routes: Routes = [
   {path:"", redirectTo:"/home", pathMatch:"full"},
   {path:"login", component:LoginComponent},
   {path:"signup", component:SignupComponent},
-  {path:"home", component:HomeComponent, /*canActivate:[AuthGuardService]*/},
+  {path:"home", component:HomeComponent, canActivate:[AuthGuardService]},
   {path:"sezione-tv/:categ", component:SezioneTvComponent},
   {path:"sezione-film/:categ", component:SezioneFilmComponent},
   {path:"dettaglio-tv/:id", component:DettaglioTvComponent},

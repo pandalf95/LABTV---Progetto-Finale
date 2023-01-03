@@ -1,1 +1,11 @@
+div.d-flex img {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
 
+div.d-flex {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1em;
+}

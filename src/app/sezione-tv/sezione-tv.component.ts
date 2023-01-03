@@ -14,7 +14,6 @@ export class SezioneTvComponent implements OnInit {
 
   copertine:Array<any> = []
   categoria:string = this.route.snapshot.params['categ']
-  posizioneScroll:number = window.scrollY
   page:number = 1
 
   ngOnInit(): void {
@@ -23,8 +22,7 @@ export class SezioneTvComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.posizioneScroll + 600 <= window.scrollY ) {
-      this.posizioneScroll += 650
+    if (document.documentElement.scrollHeight - window.scrollY == window.innerHeight) {
       this.page++
       this.aggiungiCopertine(this.page.toString())
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     
   }
 
+  clickFuori:boolean=true
 
   popularsTv:any;
   popularsCover:any;
@@ -42,6 +43,8 @@ export class HomeComponent implements OnInit {
     this.getPopularMovies()
     this.getOnAirTv()
   }
+
+  
 
   getTopRatedTv() {
 
@@ -128,10 +131,8 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random()*10)
   }
 
-
   logout() {
-    localStorage.removeItem("token")
-    this.auth.setLoggedIn(false);
+    this.auth.logout()
     this.router.navigate(['/login'])
   }
 

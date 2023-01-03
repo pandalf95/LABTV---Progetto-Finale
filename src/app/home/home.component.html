@@ -1,9 +1,13 @@
+<app-search *ngIf="clickFuori==false"></app-search>
+<i *ngIf="clickFuori==false" class="fa fa-times" aria-hidden="true" (click) = "clickFuori=true"></i>
+
 <nav>       
     <ul class="flex-container">
         <li class = "flex-item">
-            <span>Cerca</span>
+            <i class="fa fa-search" aria-hidden="true" (click)="clickFuori=false"></i>
+            <!-- <input type="text" placeholder="Cerca..." (keyup)="cerca()" [(ngModel)]="term" (click)="clickFuori=false"> -->
         </li>
-        <li class = "flex-item">
+        <li class = "flex-item" >
             <a href="javascript:void(0)"><img src="../../assets/immagini/logo.png" alt="logo"></a>
         </li>
         <li class = "flex-item">
@@ -20,46 +24,40 @@
 
     <div class="wrapper">
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 540px;" *ngIf = "popularsCover?.poster_path">
+    <div class="card mb-3 mt-5 " style="max-width: 540px;" *ngIf = "popularsCover?.poster_path" (click) = "vaiASezioneTv('popular')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + popularsCover.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">Popolari</h4>
-            <h2 class="card-text">{{popularsCover.name}}</h2>
-            <button class="btn" (click) = "vaiASezioneTv('popular')">Vedi tutti</button>
+                <h2 class="card-title display-4">Popolari</h2>
             </div>
         </div>
         </div>
     </div>
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 540px;" *ngIf = "topRatedCoverTv?.poster_path">
+    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngIf = "topRatedCoverTv?.poster_path" (click) = "vaiASezioneTv('top_rated')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + topRatedCoverTv.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">Le più votate</h4>
-            <h2 class="card-text">{{topRatedCoverTv.name}}</h2>
-            <button class="btn" (click) = "vaiASezioneTv('top_rated')">Vedi tutti</button>
+                 <h2 class="card-title display-4">Le più votate</h2>
             </div>
         </div>
         </div>
     </div>
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 540px;" *ngIf = "onAirTvCover?.poster_path">
+    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngIf = "onAirTvCover?.poster_path" (click) = "vaiASezioneTv( 'on_the_air')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + onAirTvCover.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">In corso</h4>
-            <h2 class="card-text">{{onAirTvCover.name}}</h2>
-            <button class="btn" (click) = "vaiASezioneTv( 'on_the_air')">Vedi tutti</button>
+                <h2 class="card-title display-4">In corso</h2>
             </div>
         </div>
         </div>
@@ -70,46 +68,40 @@
 
     <div class="wrapper">
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 600px;" *ngIf = "upcomingMoviesCover?.poster_path">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngIf = "upcomingMoviesCover?.poster_path" (click) = "vaiASezioneFilm( 'upcoming')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + upcomingMoviesCover.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">In arrivo</h4>
-            <h2 class="card-text">{{upcomingMoviesCover.title}}</h2>
-            <button class="btn" (click) = "vaiASezioneFilm( 'upcoming')">Vedi tutti</button>
+            <h2 class="card-title display-4">In arrivo</h2>
             </div>
         </div>
         </div>
     </div>
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 600px;" *ngIf = "topRatedMoviesCover?.poster_path">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngIf = "topRatedMoviesCover?.poster_path" (click) = "vaiASezioneFilm( 'top_rated')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + topRatedMoviesCover.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">I più votati</h4>
-            <h2 class="card-text">{{topRatedMoviesCover.title}}</h2>
-            <button class="btn" (click) = "vaiASezioneFilm( 'top_rated')">Vedi tutti</button>
+            <h2 class="card-title display-4">I più votati</h2>
             </div>
         </div>
         </div>
     </div>
 
-    <div class="card mb-3 mt-5 bg-transparent border-0 " style="max-width: 600px;" *ngIf = "popularMoviesCover?.poster_path">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngIf = "popularMoviesCover?.poster_path" (click) = "vaiASezioneFilm( 'popular')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + popularMoviesCover.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-            <h4 class="card-title mb-5">I più popolari</h4>
-            <h2 class="card-text">{{popularMoviesCover.title}}</h2>
-            <button class="btn" (click) = "vaiASezioneFilm( 'popular')">Vedi tutti</button>
+            <h2 class="card-title display-4">I più popolari</h2>
             </div>
         </div>
         </div>
@@ -117,6 +109,36 @@
 </div>
 
 </main>
+
+<footer class="mt-5">
+
+    <ul id="social">
+        <li><img src="../../assets/immagini/facebook.png" alt="facebook"></li>
+        <li><img src="../../assets/immagini/instagram.png" alt="instagram"></li>
+        <li><img src="../../assets/immagini/twitter.png" alt="twitter"></li>
+        <li><img src="../../assets/immagini/youtube.png" alt="youtube"></li>
+    </ul>
+
+    <div class="links">
+         <ul>
+        <li><a href="javascript:void(0)">Centro Assistenza</a></li>
+        <li><a href="javascript:void(0)">Note Legali</a></li>
+        <li><a href="javascript:void(0)">Condizioni Di Utilizzo</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="javascript:void(0)">Privacy</a></li>
+        <li><a href="javascript:void(0)">Preferenze Per I Cookie</a></li>
+        <li><a href="#" id="contattaci">CONTATTACI</a></li>
+    </ul>
+    </div>
+   
+
+   
+    <p><small>&copy; Copyright 2023, Fabrizio Conti</small></p>
+   
+
+</footer>
 
 
 

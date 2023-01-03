@@ -63,7 +63,6 @@ export class DettaglioTvComponent {
     this.request.getDetail("tv", this.id + "/similar").subscribe(
       data => {
         this.similarShows = data.results
-        console.log(this.similarShows)
       },
       err => {
         console.log(err)

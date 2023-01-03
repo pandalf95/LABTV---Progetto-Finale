@@ -16,12 +16,6 @@ export class RequestsToDbService {
   page:string = ""
   id:string = ""
 
-  // httpOptions = {
-  //   headers: new HttpHeaders (
-  //     {"Authorization": `Bearer ${this.token}`}
-  //   )
-  // }
-
   getRequest(section:string, categoria:string, page:string = "1"):Observable<any> {
     this.section = section
     this.categoria = categoria
@@ -35,6 +29,26 @@ export class RequestsToDbService {
     this.id = id
     let wsRequest = `https://api.themoviedb.org/3/${this.section}/${this.id}?api_key=${this.apiKey}&language=it`
     return this.http.get(wsRequest)
+  }
+
+  search(term:string):Observable<any> {
+    let wsRequest = `https://api.themoviedb.org/3/search/multi?api_key=${this.apiKey}&language=it-IT&query=${encodeURIComponent(term)}&page=1`
+    return this.http.get(wsRequest)
+  }
+
+  buy(film:any):Observable<any> {
+    return this.http.post(`http://localhost:3000/users/${localStorage.getItem("user_id")}/film-acquistati`, film, {headers: new HttpHeaders (
+      {"Authorization": `Bearer ${localStorage.getItem("token")}`})})
+  }
+
+  return(id:string):Observable<any> {
+    return this.http.delete(`http://localhost:3000/film-acquistati/${id}`, {headers: new HttpHeaders (
+      {"Authorization": `Bearer ${localStorage.getItem("token")}`})})
+  }
+
+  checkAcquistato(id:string):Observable<any> {
+    return this.http.get(`http://localhost:3000/users/${localStorage.getItem("user_id")}/film-acquistati?media_id=${id}`, {headers: new HttpHeaders (
+      {"Authorization": `Bearer ${localStorage.getItem("token")}`})})
   }
 
 }

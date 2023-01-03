@@ -13,6 +13,9 @@ import { SezioneTvComponent } from './sezione-tv/sezione-tv.component';
 import { SezioneFilmComponent } from './sezione-film/sezione-film.component';
 import { DettaglioTvComponent } from './dettaglio-tv/dettaglio-tv.component';
 import { DettaglioFilmComponent } from './dettaglio-film/dettaglio-film.component';
+import { SearchComponent } from './search/search.component';
+import { AutoFocusDirective } from './direttive/auto-focus.directive';
+import { AcquistiComponent } from './acquisti/acquisti.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { DettaglioFilmComponent } from './dettaglio-film/dettaglio-film.componen
     SezioneFilmComponent,
     DettaglioTvComponent,
     DettaglioFilmComponent,
-    SafePipe
+    SafePipe,
+    SearchComponent,
+    AutoFocusDirective,
+    AcquistiComponent
   ],
   imports: [
     BrowserModule,

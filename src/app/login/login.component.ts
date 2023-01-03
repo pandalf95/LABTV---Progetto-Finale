@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit{
     if (form.valid) {
       this.auth.login(form.value).subscribe(
         data => {
-          
+      
           localStorage.setItem("token", data.accessToken)
+          localStorage.setItem("user_id", data.user.id)
           this.auth.setLoggedIn(true);
           this.auth.setSignedUp(false);
           this.loader = true;

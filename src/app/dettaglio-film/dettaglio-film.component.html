@@ -11,15 +11,9 @@
 
 <img id="sfondo" *ngIf="dettagli?.backdrop_path" [src] = "'https://www.themoviedb.org/t/p/original/' + dettagli.backdrop_path">
 
-
-
-
-
 <div *ngIf = "mostraTrailer" class="mt-5 iframeContainer">
     <iframe [src]="'https://www.themoviedb.org/video/play?key=' + video?.key | safe" allowfullscreen allow="autoplay"></iframe>
 </div>
-
-
 
 <section>
     <div *ngIf="dettagli?.overview != '' " id="sinossi">
@@ -29,6 +23,11 @@
 
     <div id="play">
         <i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci</span></i>
+    </div>
+
+    <div id="acquista">
+        <button *ngIf="!acquistato" (click)="compra()" class="btn btn-outline-warning">Acquista <span><i class="fa-solid fa-cart-shopping"></i></span></button>
+        <button *ngIf="acquistato" (click)="restituisci()" class="btn btn-outline-warning">Restituisci</button>
     </div>
 
     <div id="tastoTrailer">

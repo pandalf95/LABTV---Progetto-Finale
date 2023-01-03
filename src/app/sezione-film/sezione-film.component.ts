@@ -12,7 +12,6 @@ export class SezioneFilmComponent implements OnInit {
   constructor(private request:RequestsToDbService, private route:ActivatedRoute, private router:Router ) {}
 
   movies:Array<any> = []
-  posizioneScroll:number = window.scrollY
   categoria:string = this.route.snapshot.params['categ']
   page:number = 1
 
@@ -22,8 +21,7 @@ export class SezioneFilmComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.posizioneScroll + 600 <= window.scrollY ) {
-      this.posizioneScroll += 650
+    if (document.documentElement.scrollHeight - window.scrollY == window.innerHeight) {
       this.page++
       this.aggiungiCopertine(this.page.toString())
     }

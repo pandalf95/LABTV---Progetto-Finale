@@ -1,10 +1,14 @@
-<h1 *ngIf="categoria == 'popular'" class="text-center display-2 mt-3 mb-5">Serie Tv Popolari</h1>
-<h1 *ngIf="categoria == 'top_rated'" class="text-center display-2 mt-3 mb-5">Serie Tv Più Votate</h1>
-<h1 *ngIf="categoria == 'on_the_air'" class="text-center display-2 mt-3 mb-5">Serie Tv In Corso</h1>
 
-<a [routerLink]="['/home']" class="ms-3 h5">Torna alla home</a>
 
-<div class="wrapper">
+<div class="d-flex justify-content-between">
+    <div> </div>
+    <h1 *ngIf="categoria == 'popular'" class="text-center display-3">Serie Tv Popolari</h1>
+    <h1 *ngIf="categoria == 'top_rated'" class="text-center display-3">Serie Tv Più Votate</h1>
+    <h1 *ngIf="categoria == 'on_the_air'" class="text-center display-3">Serie Tv In Corso</h1>
+    <img src="../../assets/immagini/logo.png" alt="" title="Vai alla home" class="align-self-center" [routerLink]="['/home']"> 
+</div>
+
+<div class="wrapper mt-4">
 
     <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let serie of copertine" (click) = "clickCopertina(serie.id)">
         <div class="row g-0">

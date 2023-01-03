@@ -44,13 +44,18 @@ ul {
 
 .card img, .card h2 {
     cursor: pointer;
-    
+    transition: .5s;
 }
 
 .card:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     border-color: #fff;
     cursor: pointer;
+}
+
+.card:hover img {
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 75%);
+     mask-image: linear-gradient(to left, transparent 0%, black 75%);
 }
 
 .wrapper {

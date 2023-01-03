@@ -6,7 +6,7 @@
     right: 0;
     width: 100vw;
     z-index: -100;
-    opacity: 0.5;
+    opacity: 0.3;
     -webkit-mask-image:-webkit-gradient(linear, left center, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     mask-image:-webkit-gradient(linear, left center, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
@@ -73,18 +73,6 @@ i span {
     border-color: #fff;
 }
 
-.iframeContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-iframe {
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
 #generi {
     grid-area: generi;
     text-shadow: 2px 2px #000;
@@ -100,9 +88,11 @@ iframe {
 section {
     margin-left: 20px;
     margin-top: 50px;
-    width: 33%;
+    width: 40%;
     display: grid;
-    grid-template-areas: "sinossi sinossi sinossi" "play play ." "generi generi data";
+    grid-template-areas:"sinossi sinossi sinossi" 
+                        "play play ." 
+                        "generi generi data";
     row-gap: 1em;
     column-gap: 10px;
 }
@@ -124,26 +114,16 @@ section {
     top: 100%;
 }
 
-article {
-    display: flex;
-    justify-content: space-between;
-}
-
 aside {
-    margin-top: 50px;
-    margin-right: 20px;
-    border-radius: 10px;
-    padding: 1em;
+    margin: 50px 20px;
 }
 
-aside div {
-    background-color: rgba(0, 0, 0, 0.6);
+aside select {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
     cursor: pointer;
-    border: 1px solid #fff;
-    padding: .7em;
+    border: 0;
+    padding: .5em;
     border-radius: 10px;
-}
-
-aside div:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 1.2em;
 }

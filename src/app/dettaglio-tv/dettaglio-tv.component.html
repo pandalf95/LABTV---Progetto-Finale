@@ -37,9 +37,12 @@
         </section>
 
         <aside>
-            <div *ngFor="let stagione of dettagli?.seasons">
-                <h3>{{stagione.name}} ({{stagione.episode_count}})</h3>
-            </div>
+            <select>
+                <option>Stagioni</option>
+                <option *ngFor="let stagione of dettagli?.seasons">
+                    {{stagione.name}} ({{stagione.episode_count}})
+                </option>
+            </select>
         </aside>
 
     </article>

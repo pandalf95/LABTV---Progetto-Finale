@@ -1,30 +1,15 @@
-<app-search *ngIf="clickFuori==false"></app-search>
-<i *ngIf="clickFuori==false" class="fa fa-times" aria-hidden="true" (click) = "clickFuori=true"></i>
 
-<nav>       
-    <ul class="flex-container">
-        <li class = "flex-item">
-            <i class="fa fa-search" aria-hidden="true" (click)="clickFuori=false"></i>
-            <!-- <input type="text" placeholder="Cerca..." (keyup)="cerca()" [(ngModel)]="term" (click)="clickFuori=false"> -->
-        </li>
-        <li class = "flex-item" >
-            <a href="javascript:void(0)"><img src="../../assets/immagini/logo.png" alt="logo"></a>
-        </li>
-        <li class = "flex-item">
-            <a href="javascript:void(0)" (click)="logout()">Logout</a>
-        </li>
-    </ul>     
-</nav>
+<app-navbar></app-navbar>
 
 <main>
 
-    <h1 class="text-center mt-5 mb-5 display-1">HOME</h1>
+    <h1 class="text-center display-1">HOME</h1>
 
     <h2 class="ms-4">Serie Tv</h2>
 
     <div class="wrapper">
 
-    <div class="card mb-3 mt-5 " style="max-width: 540px;" *ngIf = "popularsCover?.poster_path" (click) = "vaiASezioneTv('popular')">
+    <div class="card mb-3 mt-5 " style="max-width: 600px;" *ngIf = "popularsCover?.poster_path" (click) = "vaiASezioneTv('popular')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + popularsCover.poster_path" class="img-fluid rounded">
@@ -37,7 +22,7 @@
         </div>
     </div>
 
-    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngIf = "topRatedCoverTv?.poster_path" (click) = "vaiASezioneTv('top_rated')">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngIf = "topRatedCoverTv?.poster_path" (click) = "vaiASezioneTv('top_rated')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + topRatedCoverTv.poster_path" class="img-fluid rounded">
@@ -50,7 +35,7 @@
         </div>
     </div>
 
-    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngIf = "onAirTvCover?.poster_path" (click) = "vaiASezioneTv( 'on_the_air')">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngIf = "onAirTvCover?.poster_path" (click) = "vaiASezioneTv( 'on_the_air')">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src]="'https://www.themoviedb.org/t/p/original/' + onAirTvCover.poster_path" class="img-fluid rounded">

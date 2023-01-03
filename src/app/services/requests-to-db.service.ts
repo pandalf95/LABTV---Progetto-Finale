@@ -51,4 +51,9 @@ export class RequestsToDbService {
       {"Authorization": `Bearer ${localStorage.getItem("token")}`})})
   }
 
+  getAcquisti():Observable<any> {
+    return this.http.get(`http://localhost:3000/users/${localStorage.getItem("user_id")}/film-acquistati`, {headers: new HttpHeaders (
+      {"Authorization": `Bearer ${localStorage.getItem("token")}`})})
+  }
+
 }

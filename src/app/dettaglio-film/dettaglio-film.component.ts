@@ -77,9 +77,10 @@ export class DettaglioFilmComponent implements OnInit {
   }
 
   compra() {
-    this.request.buy({...this.dettagli, media_id: this.id, id:null}).subscribe(
+    this.request.buy({title:this.dettagli.title, poster_path: this.dettagli.poster_path, media_id: this.id, id:null}).subscribe(
       data => {
         this.acquistato = true
+        this.idAcquisto = data.id
       },
       err => {
         if (err.error === "jwt expired") {
@@ -94,7 +95,6 @@ export class DettaglioFilmComponent implements OnInit {
     this.request.return(this.idAcquisto).subscribe(
       data=> {
         this.acquistato = false
-        console.log(data)
       }
     )
   }

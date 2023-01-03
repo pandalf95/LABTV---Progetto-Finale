@@ -51,14 +51,14 @@
 
 <div *ngIf="simili" class="wrapper" id="boxSimili">
 
-    <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let simile of similarMovies" (click) = "clickCopertina(simile.id)">
+    <div class="card mb-3 mt-5" style="max-width: 600px;" *ngFor = "let simile of similarMovies" (click) = "clickCopertina(simile.id)">
         <div class="row g-0">
         <div class="col-md-4">
             <img [src] = "'https://www.themoviedb.org/t/p/original/' + simile.poster_path" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h3 class="card-title mb-5 ms-3">{{simile.title}}</h3>
+                <h2 class="card-title mb-5 ms-3">{{simile.title}}</h2>
                 <p *ngIf = "simile.vote_average != 0" class="ms-3">Voto: {{simile.vote_average}}</p>
             </div>
         </div>

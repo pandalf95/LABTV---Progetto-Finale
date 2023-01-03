@@ -38,13 +38,39 @@ ul {
     margin-left: 10px;
     margin-right: 10px;
     background-color: transparent;
-    transition: .5s;
+    /*transition: .5s;*/
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    min-height: 18em;
 }
 
 .card img, .card h2 {
     cursor: pointer;
-    transition: .5s;
+    transition: .5s; 
+    position: absolute;
+}
+
+.card h2 {
+    text-shadow: 2px 2px #000;
+    right: .5em;
+    max-width: 12ch;
+    font-size: 1.5em;
+}
+
+
+.card img {
+    right: 60%;
+    top: 0;
+    z-index: -10;
+    max-width: 40%;
+}
+
+.card p {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    text-shadow: 2px 2px #000;
 }
 
 .card:hover {
@@ -54,12 +80,89 @@ ul {
 }
 
 .card:hover img {
-    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 75%);
-     mask-image: linear-gradient(to left, transparent 0%, black 75%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 75%);
+     mask-image: linear-gradient(to right, transparent 0%, black 75%);
+     border-radius: 0 !important;
+     position: absolute;
+     top: -50%;
+     right: 0;
+     max-width: 500px;
+     margin-right: 0;
+}
+
+.card:hover h2 {
+    font-size: 2.5em;
+    max-width: 24ch;
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1600px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .card h2 {
+        font-size: 1.5em;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+  
+    .card h2 {
+        font-size: 1.2em;
+    }
+
+    .card {
+        min-height: 15em;
+    }
+
+    .card:hover h2 {
+        font-size: 1.5em;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .card img {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 75%);
+     mask-image: linear-gradient(to right, transparent 0%, black 75%);
+     border-radius: 0 !important;
+     position: absolute;
+     top: -50%;
+     right: 0;
+     max-width: 500px;
+     margin-right: 0;
+    }
+
+    .card:hover h2 {
+        font-size: 1.7em;
+    }
+
+    .card h2 {
+     
+        font-size: 1.7em;
+        max-width: 24ch;
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+   .card h2 {
+    font-size: 1.3em;
+   }
 }
 

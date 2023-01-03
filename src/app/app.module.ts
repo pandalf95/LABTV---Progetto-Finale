@@ -16,6 +16,7 @@ import { DettaglioFilmComponent } from './dettaglio-film/dettaglio-film.componen
 import { SearchComponent } from './search/search.component';
 import { AutoFocusDirective } from './direttive/auto-focus.directive';
 import { AcquistiComponent } from './acquisti/acquisti.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AcquistiComponent } from './acquisti/acquisti.component';
     SafePipe,
     SearchComponent,
     AutoFocusDirective,
-    AcquistiComponent
+    AcquistiComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

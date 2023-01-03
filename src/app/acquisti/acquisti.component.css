@@ -1,0 +1,11 @@
+h2 {
+    margin: 1.8em 0;
+}
+
+table td img {
+    max-width: 100px;
+}
+
+i.fa-play {
+    cursor: pointer;
+}

@@ -15,8 +15,6 @@ export class HomeComponent implements OnInit {
     
   }
 
-  clickFuori:boolean=true
-
   popularsTv:any;
   popularsCover:any;
 
@@ -131,9 +129,5 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random()*10)
   }
 
-  logout() {
-    this.auth.logout()
-    this.router.navigate(['/login'])
-  }
 
 }

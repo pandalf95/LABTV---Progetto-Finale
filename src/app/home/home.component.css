@@ -1,37 +1,5 @@
-/*#region MENU*/
-
-.flex-container {
-    display: flex;
-}
-
-nav .flex-container {
-    justify-content: space-between;
-}
-
-nav .flex-item {
-    align-self: center;
-    padding: .5vw 2vw;
-}
-
-nav .flex-container img {
-    width: 80px;
-    margin-top: 10px;
-}
-
-nav i {
-    cursor: pointer;
-    transform: scale(1.5);
-}
-
-/*#endregion MENU*/
-
-i.fa.fa-times {
-    position: absolute;
-    top: 2em;
-    right: 2em;
-    z-index: 20;
-    transform: scale(3);
-    cursor: pointer;
+h1 {
+    margin: 2em 0 1em;
 }
 
 .wrapper {
@@ -103,5 +71,27 @@ footer p {
     right: 50%;
     transform: translateX(50%);
 
+}
+
+@media screen and (max-width: 1024px) {
+    .card h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 536px) {
+    .card h2 {
+        font-size: .9em;
+    }
+
+    footer {
+        font-size: .8em;
+    }
 }
 

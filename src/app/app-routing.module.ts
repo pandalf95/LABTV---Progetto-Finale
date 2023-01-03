@@ -9,6 +9,7 @@ import { SezioneTvComponent } from './sezione-tv/sezione-tv.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { AcquistiComponent } from './acquisti/acquisti.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:"sezione-tv/:categ", component:SezioneTvComponent},
   {path:"sezione-film/:categ", component:SezioneFilmComponent},
   {path:"dettaglio-tv/:id", component:DettaglioTvComponent},
-  {path:"dettaglio-film/:id", component:DettaglioFilmComponent}
+  {path:"dettaglio-film/:id", component:DettaglioFilmComponent},
+  {path:"acquistati", component:AcquistiComponent}
   
 ];
 

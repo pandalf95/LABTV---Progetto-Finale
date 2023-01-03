@@ -20,5 +20,34 @@
       "id": 3
     }
   ],
-  "film-acquistati": []
+  "film-acquistati": [
+    {
+      "title": "Pinocchio di Guillermo del Toro",
+      "poster_path": "/tt8l8Iz3pWdlmC0HWNND9EkmInU.jpg",
+      "media_id": "555604",
+      "id": 2,
+      "userId": "2"
+    },
+    {
+      "title": "Avatar",
+      "poster_path": "/b1UAG3QykMoLxwDgzk1LqsBkkG3.jpg",
+      "media_id": "19995",
+      "id": 4,
+      "userId": "2"
+    },
+    {
+      "title": "Black Panther: Wakanda Forever",
+      "poster_path": "/fkg6zP3baUeOfeKEleVV06iglXV.jpg",
+      "media_id": "505642",
+      "id": 5,
+      "userId": "1"
+    },
+    {
+      "title": "Come per disincanto - E vissero infelici e scontenti",
+      "poster_path": "/ljEVHEUFkXMp3PglMd5KPul1Wx6.jpg",
+      "media_id": "338958",
+      "id": 6,
+      "userId": "1"
+    }
+  ]
 }

@@ -1,0 +1,55 @@
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: .3s;
+}
+
+nav.scrolled {
+    background-color: #0f0c29;
+}
+
+nav .flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .flex-item {
+    align-self: center;
+    padding: .5em 1em;
+}
+
+nav .flex-container img {
+    max-width: 70px;
+}
+
+nav i {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+nav li div {
+    background-color:rgba(0, 0, 0, 0.6) ;
+}
+
+nav li div a {
+    color: #fff;
+}
+
+nav li div a:hover {
+    background-color: #7f77da;
+}
+
+
+i.fa.fa-times {
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    z-index: 2000;
+    transform: scale(3);
+    cursor: pointer;
+}

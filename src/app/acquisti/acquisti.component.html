@@ -1,1 +1,22 @@
-<p>acquisti works!</p>
+<app-navbar></app-navbar>
+
+<h2 class="text-center display-3">I tuoi acquisti</h2>
+
+<table class="table bg-trasparent text-light mt-5">
+    <thead>
+        <tr>
+            <th>Titolo</th>
+            <th>Copertina</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let film of acquisti">
+            <td><h2>{{film.title}}</h2></td>
+            <td><img [src]="'https://www.themoviedb.org/t/p/original/' + film.poster_path" class="img-fluid rounded"></td>
+            <td><h2 class="text-center"><i class="fa-solid fa-play" (click)="vaiADettaglio(film.media_id)" ></i></h2></td>
+            <td><h2 class="text-center"><button class="btn btn-outline-warning" (click)="restituisci(film.id)">Restituisci</button></h2></td>
+        </tr>
+    </tbody>
+</table>

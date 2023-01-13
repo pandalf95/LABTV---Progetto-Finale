@@ -20,11 +20,15 @@ export class SearchComponent implements OnInit {
   risultati:any
   
   cerca() {
-    this.request.search(this.term).subscribe(
+
+    if (this.term.length >= 3) {
+      this.request.search(this.term).subscribe(
       data => {
         this.risultati = data.results
       }
     )
+    }
+    
   }
 
   vaiADettaglio(id:string, media:string) {

@@ -2,10 +2,25 @@ h2 {
     margin: 1.8em 0;
 }
 
+table td {
+    padding: 1em;
+    vertical-align: middle;
+}
+
 table td img {
     max-width: 100px;
 }
 
 i.fa-play {
     cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+    h3, button {
+        font-size: .8em;
+    }
+
+    table td img {
+        max-width: 70px;
+    }
 }

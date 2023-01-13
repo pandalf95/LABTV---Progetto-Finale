@@ -3,8 +3,9 @@
 
 <nav [ngClass]="scrolled ? 'scrolled' : ''">       
     <ul class="flex-container">
-        <li class = "flex-item">
-            <i class="fa fa-search" aria-hidden="true" (click)="clickFuori=false"></i>
+        <li class = "flex-item" (click)="clickFuori=false">
+            <i class="fa fa-search" aria-hidden="true" ></i>
+            <span> &nbsp;Cerca</span>
             <!-- <input type="text" placeholder="Cerca..." (keyup)="cerca()" [(ngModel)]="term" (click)="clickFuori=false"> -->
         </li>
         <li class = "flex-item" >

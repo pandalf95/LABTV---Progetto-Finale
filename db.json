@@ -13,9 +13,9 @@
       "id": 2
     },
     {
-      "email": "falciona94@hotmail.it",
-      "password": "$2a$10$wZ98l7XfAuWzToFDQLFNB.ESYcsf9E5tIRNqSjett/VauVDD7rPdG",
-      "nome": "Cammellone costola",
+      "email": "prova2@prova.it",
+      "password": "$2a$10$ebvIgELW9Bzj7ORqFNYmC.gd96zno0xfIuHTSk3NC7p7LouyevFf2",
+      "nome": "ProvaDue",
       "password2": "was-validated",
       "id": 3
     }
@@ -36,17 +36,24 @@
       "userId": "2"
     },
     {
-      "title": "Black Panther: Wakanda Forever",
-      "poster_path": "/fkg6zP3baUeOfeKEleVV06iglXV.jpg",
-      "media_id": "505642",
-      "id": 5,
-      "userId": "1"
-    },
-    {
       "title": "Come per disincanto - E vissero infelici e scontenti",
       "poster_path": "/ljEVHEUFkXMp3PglMd5KPul1Wx6.jpg",
       "media_id": "338958",
       "id": 6,
+      "userId": "1"
+    },
+    {
+      "title": "Avatar - La via dell'acqua",
+      "poster_path": "/kyJ7Ch5q5iDhxIjoupixTtqHObe.jpg",
+      "media_id": "76600",
+      "id": 8,
+      "userId": "1"
+    },
+    {
+      "title": "TÁR",
+      "poster_path": "/dRVAlaU0vbG6hMf2K45NSiIyoUe.jpg",
+      "media_id": "817758",
+      "id": 9,
       "userId": "1"
     }
   ]

@@ -2,6 +2,11 @@ h1 {
     margin: 2em 0 1em;
 }
 
+.card:hover img {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 75%);
+     mask-image: linear-gradient(to right, transparent 0%, black 75%);
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -86,8 +91,9 @@ footer p {
 }
 
 @media screen and (max-width: 536px) {
-    .card h2 {
-        font-size: .9em;
+
+    .wrapper {
+        grid-template-columns: 1fr;
     }
 
     footer {

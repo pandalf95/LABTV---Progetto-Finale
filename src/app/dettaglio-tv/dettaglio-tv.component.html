@@ -22,7 +22,7 @@
             </div>
 
             <div id="play">
-                <i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci dall'inizio</span></i>
+                <i class="fa-solid fa-play">&nbsp;&nbsp; <span>Riproduci</span></i>
             </div>
 
             <div id="data">
@@ -30,13 +30,13 @@
             </div>
                 
             <div id="generi">
-                <h4>Genere: </h4>
+                <h5>Genere: </h5>
                 <span *ngFor = "let genere of dettagli?.genres">{{genere.name}}&nbsp;&nbsp;</span>
             </div>
 
         </section>
 
-        <aside>
+        <aside id="stagioni">
             <select>
                 <option>Stagioni</option>
                 <option *ngFor="let stagione of dettagli?.seasons">
@@ -44,6 +44,8 @@
                 </option>
             </select>
         </aside>
+
+        
 
     </article>
 
@@ -53,14 +55,14 @@
 
     <div *ngIf="simili" class="wrapper" id="boxSimili">
 
-        <div class="card mb-3 mt-5" style="max-width: 540px;" *ngFor = "let simile of similarShows" (click) = "clickCopertina(simile.id)">
+        <div class="card mb-3 mt-5" style="max-width: 600px;" *ngFor = "let simile of similarShows" (click) = "clickCopertina(simile.id)">
             <div class="row g-0">
             <div class="col-md-4">
                 <img [src] = "'https://www.themoviedb.org/t/p/original/' + simile.poster_path" class="img-fluid rounded">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title mb-5 ms-3">{{simile.name}}</h3>
+                    <h2 class="card-title mb-5 ms-3">{{simile.name}}</h2>
                     <p *ngIf = "simile.vote_average != 0" class="ms-3">Voto: {{simile.vote_average}}</p>
                 </div>
             </div>

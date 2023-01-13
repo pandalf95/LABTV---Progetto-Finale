@@ -88,13 +88,17 @@ i span {
 section {
     margin-left: 20px;
     margin-top: 50px;
-    width: 40%;
+    width: 50%;
     display: grid;
     grid-template-areas:"sinossi sinossi sinossi" 
                         "play play ." 
-                        "generi generi data";
+                        "generi . data";
     row-gap: 1em;
     column-gap: 10px;
+}
+
+#stagioni {
+    grid-area: stagioni;
 }
 
 #simili {
@@ -115,7 +119,8 @@ section {
 }
 
 aside {
-    margin: 50px 20px;
+    margin: 30px 20px;
+    font-size: 1.2em;
 }
 
 aside select {
@@ -125,5 +130,53 @@ aside select {
     border: 0;
     padding: .5em;
     border-radius: 10px;
-    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1300px) {
+    #sinossi {
+        font-size: .9em;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    section {
+        width: 90%;
+    }
+
+    #menu img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #menu h1 {
+        font-size: 2em;
+    }
+
+    i.fa-play {
+        font-size: 1.5em;
+       }
+}
+
+@media screen and (max-width: 620px) {
+   #sinossi {
+    font-size: .8em;
+   }
+
+   section {
+    margin-top: 20px;
+    font-size: smaller;
+   }
+
+   #generi h5, #data h5 {
+        font-size: 1em;
+   }
+
+   #menu h1 {
+    font-size: 1.5em;
+    }
+
+    #stagioni {
+        font-size: .9em;
+    }
+
 }
